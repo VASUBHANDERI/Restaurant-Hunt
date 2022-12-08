@@ -18,11 +18,12 @@ export default () => {
       setErrorMessage("");
     } catch (err) {
       setErrorMessage("Something went wrong!");
+      console.log(err)
     }
   };
 
   useEffect(() => {
-    searchApi("pasta");
+    searchApi("indian");
   }, []);
 
   return [searchApi, result, errorMessage];

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "food",
+    "name": "Restaurant Hunt",
     "slug": "food",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,6 +10,10 @@
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#006600",
+      "translucent": false
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -24,10 +28,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.vasu_002.food"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d2c33524-3b61-4f68-856d-1b7a525e04d3"
+      }
     }
   }
 }
