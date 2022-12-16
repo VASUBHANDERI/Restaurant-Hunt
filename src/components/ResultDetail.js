@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignContent: "space-between",
     alignItems: "center",
-    paddingTop:3,
+    paddingTop: 3,
   },
   ratinginfo: {
     color: "white",

@@ -21,7 +21,18 @@ const SearchScreen = () => {
         onSubmit={() => searchApi(term)}
       />
       {errorMessage ? (
-        <Text style={{alignSelf:"center",flex:1,justifyContent:'center',color:'gray',fontSize:20,marginTop:20,}}>{errorMessage}</Text>
+        <Text
+          style={{
+            alignSelf: "center",
+            flex: 1,
+            justifyContent: "center",
+            color: "gray",
+            fontSize: 20,
+            marginTop: 20,
+          }}
+        >
+          {errorMessage}
+        </Text>
       ) : (
         <ScrollView showsVerticalScrollIndicator={false}>
           <ResultsList

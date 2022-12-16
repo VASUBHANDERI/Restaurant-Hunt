@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 15,
     marginBottom: 10,
-    // fontFamily: "Roboto",
   },
 });
 

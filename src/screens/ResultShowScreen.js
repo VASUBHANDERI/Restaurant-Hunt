@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Image, Dimensions, Linking } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Dimensions,
+  Linking,
+} from "react-native";
 import React, { useState, useEffect } from "react";
 import yelp from "../api/yelp";
 
@@ -34,16 +41,21 @@ const ResultShowScreen = ({ navigation }) => {
         {result.location.display_address[1]}{" "}
         {result.location.display_address[2]}{" "}
       </Text>
-      <Text style = {{color:'blue'}} onPress = {()=>Linking.openURL(`${result.url}`)}>Click here to visit our website</Text>
+      <Text
+        style={{ color: "blue" }}
+        onPress={() => Linking.openURL(`${result.url}`)}
+      >
+        Click here to visit our website
+      </Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container:{
-    paddingLeft:10,
-    backgroundColor:'white',
-    flex:1,
+  container: {
+    paddingLeft: 10,
+    backgroundColor: "white",
+    flex: 1,
   },
   name: {
     fontSize: 25,
@@ -54,9 +66,8 @@ const styles = StyleSheet.create({
     width: Dimensions.get("screen").width * 0.98,
     height: Dimensions.get("screen").height * 0.4,
     borderRadius: 5,
-    alignSelf:'center',
+    alignSelf: "center",
     marginBottom: 5,
   },
-
 });
 export default ResultShowScreen;

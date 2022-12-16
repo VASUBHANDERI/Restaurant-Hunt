@@ -18,7 +18,7 @@ export default () => {
       setErrorMessage("");
     } catch (err) {
       setErrorMessage("Something went wrong!");
-      console.log(err)
+      console.log(err);
     }
   };
 
