@@ -4,6 +4,7 @@ import yelp from "../api/yelp";
 export default () => {
   const [result, setResult] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const [firstTime, setFirstTime] = useState(true);
 
   const searchApi = async (searchTerm) => {
     try {
@@ -11,7 +12,7 @@ export default () => {
         params: {
           limit: 50,
           term: searchTerm,
-          location: "san jose",
+          location: "newyork",
         },
       });
       setResult(response.data.businesses);
@@ -22,9 +23,10 @@ export default () => {
     }
   };
 
-  useEffect(() => {
-    searchApi("Dosa");
+  useEffect(async () => {
+    await searchApi("Gujarati");
+    setFirstTime(false);
   }, []);
 
-  return [searchApi, result, errorMessage];
+  return [searchApi, result, errorMessage, firstTime];
 };

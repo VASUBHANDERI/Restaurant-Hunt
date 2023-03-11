@@ -12,7 +12,7 @@
       "backgroundColor": "#ffffff"
     },
     "androidStatusBar": {
-      "backgroundColor": "#006600",
+      "backgroundColor": "#759e37",
       "translucent": false
     },
     "updates": {
@@ -27,9 +27,10 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#759e37"
       },
-      "package": "com.vasu_002.food"
+      "package": "com.vasu_002.food",
+      "versionCode":2
     },
     "web": {
       "favicon": "./assets/favicon.png"

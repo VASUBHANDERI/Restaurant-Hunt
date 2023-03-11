@@ -1,29 +1,57 @@
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import SearchScreen from "./src/screens/SearchScreen";
-import ResultShowScreen from "./src/screens/ResultShowScreen";
+import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
+import {
+  horizontalScale,
+  moderateScale,
+  verticalScale,
+} from "./src/components/Metrics";
 
 const navigator = createStackNavigator(
   {
     Search: SearchScreen,
-    ResultShow: ResultShowScreen,
   },
   {
     initialRouteName: "Search",
     defaultNavigationOptions: {
       title: "Restaurant Hunt",
       headerStyle: {
-        backgroundColor: "#006600",
+        shadowColor: "black",
+        shadowOpacity: 1,
+        shadowRadius: moderateScale(8),
+        shadowOffset: { width: horizontalScale(5), height: verticalScale(4) },
+        elevation: horizontalScale(30),
+        backgroundColor: "#759E37",
       },
       headerTitleStyle: {
-        fontWeight: "bold",
-        color: "#FFF",
-        fontSize: 25,
-        marginHorizontal: 10,
+        // fontWeight: "bold",
+        color: "white",
+        fontSize: moderateScale(30),
+        marginHorizontal: horizontalScale(10),
+        fontFamily: "Popins",
       },
       headerTintColor: "#FFF",
     },
   }
 );
 
-export default createAppContainer(navigator);
+const AppContainer = createAppContainer(navigator);
+
+export default function App() {
+  const [fontsLoaded] = useFonts({
+    Popins: require("./assets/fonts/Poppins-Light.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+  return (
+    <>
+      <StatusBar style="light" />
+      <AppContainer />
+    </>
+  );
+}

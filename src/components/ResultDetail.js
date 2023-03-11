@@ -8,10 +8,25 @@ import {
   Dimensions,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import { useFonts } from "expo-font";
+import { horizontalScale, moderateScale, verticalScale } from "./Metrics";
+
+Text.defaultProps = {
+  ...(Text.defaultProps || {}),
+  allowFontScaling: false,
+};
 
 const ResultDetail = ({ result }) => {
+  const [loaded] = useFonts({
+    Popins: require("../../assets/fonts/Poppins-Light.ttf"),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
-    <View style={{ padding: 5 }}>
+    <View style={{ padding: moderateScale(5) }}>
       <View style={styles.container}>
         <Image style={styles.image} source={{ uri: result.image_url }} />
         <Text style={styles.name}>{result.name}</Text>
@@ -32,67 +47,72 @@ const ResultDetail = ({ result }) => {
 
 const styles = StyleSheet.create({
   name: {
-    fontWeight: "bold",
-    fontSize: 16,
+    // fontWeight: "600",
+    fontSize: moderateScale(16),
     width: Dimensions.get("screen").width * 0.7,
+    fontFamily: "Popins",
+    color: "#395144",
   },
   image: {
     width: Dimensions.get("screen").width * 0.7,
-    height: 150,
-    borderRadius: 5,
-    marginBottom: 5,
+    height: verticalScale(150),
+    borderRadius: moderateScale(5),
+    marginBottom: verticalScale(5),
   },
   container: {
-    marginLeft: 10,
+    marginLeft: horizontalScale(10),
   },
   infoContainer: {
     flexDirection: "row",
     alignContent: "space-between",
     alignItems: "center",
-    paddingTop: 3,
+    paddingTop: verticalScale(3),
   },
   ratinginfo: {
     color: "white",
     alignSelf: "flex-start",
-    fontSize: 15,
+    fontSize: moderateScale(15),
+    fontFamily: "Popins",
   },
   reviewinfo: {
-    color: "black",
+    color: "#395144",
     alignSelf: "flex-start",
-    fontSize: 15,
+    fontSize: moderateScale(15),
+    fontFamily: "Popins",
   },
   ratingContainer: {
-    marginRight: 10,
+    marginRight: horizontalScale(10),
     flexDirection: "row",
     alignItems: "flex-start",
     justifyContent: "flex-start",
-    backgroundColor: "#006600",
-    padding: 5,
-    borderRadius: 5,
+    backgroundColor: "#759E37",
+    padding: moderateScale(5),
+    borderRadius: moderateScale(5),
   },
   reviewContainer: {
-    marginRight: 10,
+    marginRight: horizontalScale(10),
     flexDirection: "row",
     alignItems: "flex-start",
     justifyContent: "flex-start",
     backgroundColor: "#FFC107",
-    padding: 5,
-    borderRadius: 5,
+    padding: moderateScale(5),
+    borderRadius: moderateScale(5),
   },
   star: {
     color: "white",
-    fontSize: 15,
+    fontSize: moderateScale(15),
     fontWeight: "500",
-    marginLeft: 3,
-    marginTop: 1,
+    marginLeft: horizontalScale(3),
+    marginTop: verticalScale(3),
     fontStyle: "italic",
+    fontFamily: "Popins",
   },
   eye: {
-    color: "black",
-    fontSize: 15,
+    color: "#395144",
+    fontSize: moderateScale(15),
     fontWeight: "bold",
-    marginLeft: 3,
-    marginTop: 1,
+    marginLeft: horizontalScale(3),
+    marginTop: verticalScale(3),
   },
 });
 
